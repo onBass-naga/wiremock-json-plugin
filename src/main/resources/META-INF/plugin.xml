@@ -4,8 +4,6 @@
     <name>wiremock-json</name>
     <vendor>onbass-naga</vendor>
 
-    <depends>com.intellij.modules.platform</depends>
-
     <description><![CDATA[
     A plugin for navigating between WireMock mapping files and body files.<br>
     <ul>
@@ -19,6 +17,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.json</depends>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
