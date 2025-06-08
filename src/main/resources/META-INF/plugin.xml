@@ -1,15 +1,46 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.onbassnaga.wiremockjsonplugin</id>
-    <name>wiremock-json-plugin</name>
+    <name>wiremock-json</name>
     <vendor>onbass-naga</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <description><![CDATA[
+    A plugin for navigating between WireMock mapping files and body files.<br>
+    <ul>
+      <li>Adds "Go to File" links for existing body files referenced in mapping files</li>
+      <li>Adds "Create File" links for non-existent body files referenced in mapping files</li>
+      <li>Allows right-clicking on body files to navigate to mapping files that reference them</li>
+    </ul>
+  ]]></description>
 
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.onbassnaga.wiremockjsonplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.onbassnaga.wiremockjsonplugin.startup.MyProjectActivity" />
+        <!-- Annotator for underlining bodyFileName values -->
+        <annotator
+                language="JSON"
+                implementationClass="com.github.onbassnaga.wiremockjsonplugin.WireMockAnnotator"/>
+
+        <!-- Line marker provider for bodyFileName values -->
+        <codeInsight.lineMarkerProvider
+                language="JSON"
+                implementationClass="com.github.onbassnaga.wiremockjsonplugin.WireMockLineMarkerProvider"/>
     </extensions>
+
+    <actions>
+        <!-- Action for body files -->
+        <action id="wiremockjsonplugin.WireMockBodyFileAction"
+                class="com.github.onbassnaga.wiremockjsonplugin.WireMockBodyFileAction"
+                text="Find Mapping Files"
+                description="Find mapping files that reference this body file">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>

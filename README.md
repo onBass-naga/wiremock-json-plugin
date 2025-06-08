@@ -4,24 +4,34 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Adjust the [pluginGroup](./gradle.properties) and [pluginName](./gradle.properties), as well as the [id](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the `MARKETPLACE_ID` in the above README badges. You can obtain it once the plugin is published to JetBrains Marketplace.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
-
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+A plugin for IntelliJ IDEA that helps navigate between WireMock mapping files and body files.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+## Features
+
+- Underlines `bodyFileName` values in WireMock mapping files
+- Adds "Go to file" links for existing body files referenced in mapping files
+- Adds "Create file" links for non-existent body files referenced in mapping files
+- Allows right-clicking on body files to navigate to mapping files that reference them
+
+## Usage
+
+### Navigating from Mapping Files to Body Files
+
+1. Open a WireMock mapping file (JSON file in a `mappings` directory)
+2. The `bodyFileName` value will be underlined
+3. Click on the underlined value to navigate to the body file
+4. If the body file doesn't exist, you'll see a "Create file" option
+
+### Navigating from Body Files to Mapping Files
+
+1. Open a WireMock body file (file in a `__files` directory)
+2. Right-click in the editor
+3. Select "Find Mapping Files" from the context menu
+4. A popup will show all mapping files that reference this body file
+5. Click on a mapping file to open it
+
 <!-- Plugin description end -->
 
 ## Installation
