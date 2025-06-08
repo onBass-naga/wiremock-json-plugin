@@ -1,4 +1,4 @@
-# wiremock-json-plugin
+# wiremock-json
 
 ![Build](https://github.com/onBass-naga/wiremock-json-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
@@ -38,7 +38,7 @@ A plugin for IntelliJ IDEA that helps navigate between WireMock mapping files an
 
 - Using the IDE built-in plugin system:
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "wiremock-json-plugin"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "wiremock-json"</kbd> >
   <kbd>Install</kbd>
   
 - Using JetBrains Marketplace:
@@ -53,6 +53,9 @@ A plugin for IntelliJ IDEA that helps navigate between WireMock mapping files an
   Download the [latest release](https://github.com/onBass-naga/wiremock-json-plugin/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
+## License
+
+This software is released under the MIT License, see LICENSE.
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
